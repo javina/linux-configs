@@ -1,3 +1,5 @@
+alias laravel='~/.composer/vendor/bin/laravel'
+
 alias art="php artisan"
 
 alias migrate="php artisan migrate"
