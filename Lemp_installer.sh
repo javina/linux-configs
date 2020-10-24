@@ -44,7 +44,7 @@ echo -e "$Green \n Updating System Done... $Color_Off"
 # [*]  Install Nginx Server
 echo -e "$Cyan \n Installing Nginx ... $Color_Off"
 sudo apt-get -y install nginx
-sudo systemctl status nginx.service
+# sudo systemctl status nginx.service
 echo -e "$Green \n Installing Nginx Done $Color_Off"
 
 [*] Install PHP
@@ -113,11 +113,11 @@ echo -e "$Green \n PHP Composer Installed $Color_Off"
 
 # [*] Node JS
 echo -e "$Cyan \n Installing Nodejs ... $Color_Off"
-sudo apt-get install nodejs -y
+sudo apt-get install -y nodejs
 echo -e "$Green \n Node JS Installed $Color_Off"
 node -v
 echo -e "$Cyan \n Installing NPM ... $Color_Off"
-sudo apt install npm  -y
+sudo apt install -y npm
 echo -e "$Green \n NPM Installed $Color_Off"
 npm -v
 
@@ -136,7 +136,7 @@ echo -e "$Green \n Redis Installed $Color_Off"
 
 # [*] Install Supervisord
 echo -e "$Cyan \n Installing supervisor ... $Color_Off"
-sudo apt-get install supervisor -y
+sudo apt-get install -y supervisor
 echo -e "$Green \n Supervisor Installed $Color_Off"
 
 
