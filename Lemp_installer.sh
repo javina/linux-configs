@@ -83,17 +83,12 @@ sudo apt-get install -y git-core
 git config --list
 echo -e "$Green \n Git has been Installed and Configured $Color_Off"
 
-# [*] Configure Permissions
-echo -e "$Cyan \n Configuring Permissions for /var/www $Color_Off"
-sudo usermod -aG www-data $USER
-sudo chown -R www-data:www-data /var/www/
-sudo chmod -R 775 /var/www/
-groups $USER
-echo -e "$Green \n Permissions to HTML Dir have been set sucessfully $Color_Off"
 
 # [*] Installing Composer
 echo -e "$Cyan \n Installing Composer ... $Color_Off"
-curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer                                             
+# curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+curl -sS https://getcomposer.org/installer -o composer-setup.php
+sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 sudo chown $USER $COMPOSER_PATH
 [[ ! -f $ALIASES ]] && touch $ALIASES > /dev/null 2>&1 && echo "File $ALIASES created ..."
 echo -e "$Cyan \n Getting Laravel installer ... $Color_Off"
@@ -138,6 +133,16 @@ echo -e "$Green \n Redis Installed $Color_Off"
 echo -e "$Cyan \n Installing supervisor ... $Color_Off"
 sudo apt-get install -y supervisor
 echo -e "$Green \n Supervisor Installed $Color_Off"
+
+# [*] Configure Permissions
+echo -e "$Cyan \n Configuring Permissions for /var/www $Color_Off"
+sudo usermod -aG www-data $USER
+sudo chown -R www-data:www-data /var/www/
+sudo chmod -R 775 /var/www/
+groups $USER
+echo -e "$Yellow \n Reloading $USER Profile ... $Color_Off"
+source ~/.bashrc
+echo -e "$Green \n Permissions to HTML Dir have been set sucessfully $Color_Off"
 
 
 echo -e "$Red \n Installation Process Completed $Color_Off ... $Yellow Code something amazing !!!  $Color_Off"
