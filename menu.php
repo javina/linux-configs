@@ -1,6 +1,6 @@
 <?php
 
-namespace Lgps\Signals\Menu;
+namespace App\Menu;
 
 use Auth;
 use JeroenNoten\LaravelAdminLte\Menu\Builder;
